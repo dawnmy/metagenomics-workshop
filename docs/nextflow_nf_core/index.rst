@@ -8,6 +8,6 @@ Text describing what this part of the workshop will contain...
    :maxdepth: 1
 
    nextflow
-   nf_core_assembly_binning
+   .. nf_core_assembly_binning
    nf_core_profiling
-   nf_core_hands_on
+   .. nf_core_hands_on
