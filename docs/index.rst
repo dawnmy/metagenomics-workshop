@@ -15,11 +15,11 @@ typical steps of metagenome assembly and binning.
    simplevm
    cli
    data
-   qc/index
-   assembly/index
-   evaluation/index
-   binning/index
-   classification/index
-   data_submission/index
+   .. qc/index
+   .. assembly/index
+   .. evaluation/index
+   .. binning/index
+   .. classification/index
+   .. data_submission/index
    nextflow_nf_core/index
    
