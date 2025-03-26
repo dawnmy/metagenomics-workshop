@@ -168,9 +168,11 @@ There are different types of channels in nextflow:
 
    bases = ['A', 'C', 'G', 'T']
    
+   // This will print bases as a single value as a List
    Channel.value(bases)
      .view()
    
+   // This will print each of the bases one by one
    Channel.of('A', 'C', 'G', 'T')
      .view()
    
