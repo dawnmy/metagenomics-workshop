@@ -123,6 +123,8 @@ The basic structure of a process is::
     < user script to be executed >
   }
 
+A minimum process must contain a script block, and it should be the last statement when the process contains input and output declarations.
+
 Please create a file named ``ch1.nf`` and write the following code in it:
 
 .. code-block:: groovy
