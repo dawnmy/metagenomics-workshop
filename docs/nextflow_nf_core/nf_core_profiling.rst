@@ -23,6 +23,14 @@ The nf-core/taxpfoiler (https://nf-co.re/taxprofiler) will be used in this train
   tool,db_name,db_params,db_path
   motus,db_mOTU,,/mnt/db_mOTU
 
+- Prepare the compressed fastq files as input:
+
+.. code-block:: shell
+  
+  cd /mnt/WGS-data
+  pigz -k read1.fq
+  pigz -k read2.fq
+
 - **Prepare sample sheet file with** ``vi samples.csv``
 
 .. code-block:: shell
