@@ -16,18 +16,17 @@ We will use nf-core/mag (https://nf-co.re/mag) workflow for metagenomics assembl
 
 - Before running the workflow, we need to prepare the compressed fastq files as input which have been prepared from the taxonomy profiling section.
 
-- Create the sample sheet csv file for `mag`: `samples_mag.csv`:
+- **Prepare sample sheet file with** ``vi samples_mag.csv``
 .. code-block:: shell
 
   sample,group,short_reads_1,short_reads_2,long_reads
-  s1,run1,/vol/mgcourse/WGS-data/read1.fq.gz,/vol/mgcourse/WGS-data/read2.fq.gz,
+  s1,run1,/mnt/WGS-data/read1.fq.gz,/mnt/WGS-data/read2.fq.gz,
 
 
 - Then we can start the mag workflow as follows:
 
 .. code-block:: shell
 
-  cd ..
   mkdir -p output_mag
   nextflow run nf-core/mag \
     -r 3.3.1
