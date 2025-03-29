@@ -20,7 +20,7 @@ We will use nf-core/mag (https://nf-co.re/mag) workflow for metagenomics assembl
 .. code-block:: shell
 
   sample,group,short_reads_1,short_reads_2,long_reads
-  s1,run1,/mnt/WGS-data/read1.fq.gz,/mnt/WGS-data/read2.fq.gz,
+  s1,run1,/vol/mgcourse/WGS-data/read1.fq.gz,/vol/mgcourse/WGS-data/read2.fq.gz,
 
 
 - Then we can start the mag workflow as follows:
@@ -30,7 +30,8 @@ We will use nf-core/mag (https://nf-co.re/mag) workflow for metagenomics assembl
   cd ..
   mkdir -p output_mag
   nextflow run nf-core/mag \
-    -profile singularity \
+    -r 3.3.1
+    -profile docker \
     --input samples_mag.csv \
     --outdir output_mag \
     --skip_concoct \
