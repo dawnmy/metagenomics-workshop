@@ -9,7 +9,7 @@ The nf-core/taxpfoiler (https://nf-co.re/taxprofiler) will be used in this train
 
 .. code-block:: shell
 
-  cd /mnt
+  cd /mnt/
 
   wget https://openstack.cebitec.uni-bielefeld.de:8080/swift/v1/mg_databases/db_mOTU_v3.1.0.tar.gz
   tar zvxf db_mOTU_v3.1.0.tar.gz
@@ -47,7 +47,7 @@ The nf-core/taxpfoiler (https://nf-co.re/taxprofiler) will be used in this train
     --input samples.csv \
     --databases databases.csv \
     --outdir output_taxprofiler \
-    -profile singularity \
+    -profile docker \
     --run_motus \
     --motus_use_relative_abundance
 
