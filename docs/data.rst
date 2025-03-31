@@ -2,15 +2,14 @@ The Tutorial Data Set
 ================================
 
 We have prepared a small toy data set for this tutorial. Please use the
-following commands to download the data to your VM::
+following commands to download (already pre-downloaded) the data to your VM::
 
-  sudo chown ubuntu:ubuntu /mnt
-  cd /mnt
-  wget https://openstack.cebitec.uni-bielefeld.de:8080/swift/v1/denbi-mg-course/WGS-data.tar
-  tar xvf WGS-data.tar
+  cd /vol/mgcourse
+  # wget https://openstack.cebitec.uni-bielefeld.de:8080/swift/v1/denbi-mg-course/WGS-data.tar
+  # tar xvf WGS-data.tar
 
   
-The `/mnt/WGS-data` directory has the following content:
+The `/vol/mgcourse/WGS-data` directory has the following content:
 
 +---------------+--------------------------------------------+
 | File          | Content                                    |
