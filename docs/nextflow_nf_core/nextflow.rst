@@ -6,7 +6,9 @@ Some of the examples below are from: https://carpentries-incubator.github.io/wor
 .. code-block:: shell
 
    conda activate nf_metag
-   cd /mnt
+   cd /vol/mgcourse
+   mkdir -p nf_intro
+   cd nf_intro
 
 Nextflow/Groovy Language Basics
 <<<<<<<<<<<<
@@ -16,7 +18,7 @@ This guide provides an overview of the basic elements of the Nextflow language.
 - **Printing**
 
 In Nextflow, you can print messages to the console using the ``println`` statement.
-Please create and open a file named ``ch0.nf`` in the ``/mnt`` directory and write the following code in it
+Please create and open a file named ``ch0.nf`` in the ``/vol/mgcourse/nf_intro`` directory and write the following code in it
 
 .. code-block:: groovy
 
@@ -138,7 +140,7 @@ Please create a file named ``ch1.nf`` and write the following code in it:
       stdout
       
       """
-      seqkit stats /mnt/WGS-data/read1.fq
+      seqkit stats /vol/mgcourse/WGS-data/read1.fq
       """
    }
 
@@ -181,17 +183,17 @@ There are different types of channels in nextflow:
    Channel.fromList(bases)
      .view()
    
-   Channel.fromPath("${projectDir}/WGS-data/*.fq")
+   Channel.fromPath("${projectDir}/../WGS-data/*.fq")
      .view()
    
-   Channel.fromFilePairs("${projectDir}/WGS-data/*{1,2}.fq")
+   Channel.fromFilePairs("${projectDir}/../WGS-data/*{1,2}.fq")
      .view()
    
    
    Channel.fromSRA('SRP043510')
      .view()
 
-Write the above code in ``ch2.nf``, and run it.
+Write the above code in ``ch2.nf`` in ``/vol/mgcourse/nf_intro``, and run it.
 
 Workflows
 ----------
@@ -206,8 +208,8 @@ We can connect different processes with channels to make a complete workflow. We
    nextflow.enable.dsl=2
    
    // Define parameters
-   params.reads = "/mnt/WGS-data/read{1,2}.fq" // Default pattern for paired-end reads
-   params.outdir = "./output_nf" // Default output directory
+   params.reads = "/vol/mgcourse/WGS-data/read{1,2}.fq" // Default pattern for paired-end reads
+   params.outdir = "../output_nf" // Default output directory
    params.threads = 8
    
    // QC the reads
@@ -264,7 +266,7 @@ We can connect different processes with channels to make a complete workflow. We
 
 After the workflow excuted, we should be able to find the final stats output file. We can view it with: 
 
-``csvtk pretty -t output_nf/read.fastp.stats.txt``
+``csvtk pretty -t ../output_nf/read.fastp.stats.txt``
 
 
 Operators
@@ -291,7 +293,7 @@ Transforming operators modify the value or data contained in the channel element
 
    // Example: Transform filenames to uppercase
    Channel
-    .fromPath('WGS-data/*.fq')
+    .fromPath('../WGS-data/*.fq')
     .map { file -> file.name.toUpperCase() }
     .view { "Transformed filename: $it" }
 
@@ -311,7 +313,7 @@ Transforming operators modify the value or data contained in the channel element
    
    // Grouping contents of a channel by a key. 
    // The first element of tuple is the default key.
-   Channel.fromPath('output_nf/*.fastp.{1,2}.fq.gz')
+   Channel.fromPath('../output_nf/*.fastp.{1,2}.fq.gz')
      .map{file -> [file.name.split('\\.')[0], file]}
      .groupTuple()
      .view()
