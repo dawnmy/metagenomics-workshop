@@ -65,7 +65,7 @@ sequencing data (it is already pre-downloaded):
 
 ::
 
-   cd /vol/mgcourse/linux_intro
+   cd linux_intro/
    # wget https://openstack.cebitec.uni-bielefeld.de:8080/swift/v1/linuxcourse/seqs.fasta
 
 Tasks: 
@@ -112,11 +112,11 @@ Solution:
    ls /usr/local/bin/blast* <br>
    ls /usr/local/bin/blast? <br>
    ls /usr/local/bin/[ab]*[cd] <br>
-   cd ~/linux_intro
-   cp ~/linuxdata/sequences* ~/linux_intro/
-   cp ~/linuxdata/sequences_?.fasta ~/linux_intro/
-   cp ~/linuxdata/sequences_[1-4].fasta ~/linux_intro/
-   cp ~/linuxdata/sequences_{1..4}.fasta ~/linux_intro/
+   cd ~/linuxdata
+   cp ./linuxdata/sequences* ~/linux_intro/
+   cp ./linuxdata/sequences_?.fasta ~/linux_intro/
+   cp ./linuxdata/sequences_[1-4].fasta ~/linux_intro/
+   cp ./linuxdata/sequences_{1..4}.fasta ~/linux_intro/
    </pre>
    </details>
 
@@ -138,12 +138,12 @@ Solutoin:
    <details>
    <pre>
    cd ~/linux_intro
-   cp ~/linuxdata/Araport11_genes.gff . 
+   cp ./linuxdata/Araport11_genes.gff . 
    less Araport11_genes.gff 
    wc -l Araport11_genes.gff 
    grep -c "^Chr1" Araport11_genes.gff <br>
    grep Auxin Araport11_genes.gff <br>
-   grep -r "Romeo und Juliet" ~/linuxdata/ 
+   grep -r "Romeo and Juliet" ./linuxdata/ 
    </pre>
    </details>
 
@@ -166,7 +166,7 @@ Solutoin:
    <details>
    <pre>
    cat sequences_[1-4].fasta > sequences.fasta <br>
-   head -n 4 | tail -n 2 sequences.fasta <br>
+   head -n 4 sequences.fasta | tail -n 2  <br>
    grep ">" sequences.fasta > headers.txt 
    grep ">" sequences.fasta | head -n 20 | tail -n 10 > headers_2.txt 
    grep ">" sequences.fasta | head -n 50 | tail -n 10 >> headers_2.txt 
@@ -191,7 +191,7 @@ Solution:
 
    <details>
    <pre>
-   cut -f 3 Araport11_genes.gff | sort | uniq -c | grep -v "#" <br>
+   cut -f 3 Araport11_genes.gff | sort | uniq -c | grep -v "##" <br>
    cut -f 1,3 Araport11_genes.gff | sort | uniq -c | grep -v "##" <br>
    grep kinase Araport11_genes.gff | cut -f 1,3 | grep gene | cut -f 1 | sort | uniq -c
    </pre>
