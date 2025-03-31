@@ -37,10 +37,10 @@ Solution:
 Excercise 2: Links
 ------------------
 Tasks:
- 1. change to /mnt/ 
+ 1. change to /vol/mgcourse
  2. Create a directory with the name “linux_intro” and give it to the user ubuntu 
  3. Go back to your home directory 
- 4. Create a soft link called ‘linux_intro’ to /mnt/linux_intro
+ 4. Create a soft link called ‘linux_intro’ to /vol/mgcourse/linux_intro
 
 **Note:** this cannot be done using normal permission. Use sudo for operating with root privileges
 
@@ -50,11 +50,10 @@ Solution:
 
    <details>
    <pre>
-   cd /mnt
-   sudo mkdir linux_intro
-   sudo chown ubuntu:ubuntu linux_intro
+   cd /vol/mgcourse
+   mkdir -p linux_intro
    cd
-   ln -s /mnt/linux_intro
+   ln -s /vol/mgcourse/linux_intro
    </pre>
    </details>
 
@@ -62,12 +61,12 @@ Excercise 3: Display File Content
 ---------------------------------
 
 Before you can do the next excercise, you need to donwload the
-sequencing data:
+sequencing data (it is already pre-downloaded):
 
 ::
 
-   cd ~/linux_intro
-   wget https://openstack.cebitec.uni-bielefeld.de:8080/swift/v1/linuxcourse/seqs.fasta
+   cd /vol/mgcourse/linux_intro
+   # wget https://openstack.cebitec.uni-bielefeld.de:8080/swift/v1/linuxcourse/seqs.fasta
 
 Tasks: 
  1. Use head and tail to inspect the file 
