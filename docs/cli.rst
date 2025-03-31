@@ -112,7 +112,7 @@ Solution:
    ls /usr/local/bin/blast* <br>
    ls /usr/local/bin/blast? <br>
    ls /usr/local/bin/*2sam* <br>
-   cd ~/linuxdata
+   cd ~/linux_intro
    cp ./linuxdata/sequences* ~/linux_intro/
    cp ./linuxdata/sequences_?.fasta ~/linux_intro/
    cp ./linuxdata/sequences_[1-4].fasta ~/linux_intro/
