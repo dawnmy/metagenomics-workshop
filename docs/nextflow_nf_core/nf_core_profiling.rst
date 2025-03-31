@@ -5,14 +5,14 @@ The nf-core/taxpfoiler (https://nf-co.re/taxprofiler) will be used in this train
 
 ----------
 
-- **Download reference databases**
+- **Download mOTUs databases** if ``db_mOTU`` is not available in ``/vol/mgcourse``
 
 .. code-block:: shell
 
-  cd /mnt/
+  cd /vol/mgcourse
 
-  wget https://openstack.cebitec.uni-bielefeld.de:8080/swift/v1/mg_databases/db_mOTU_v3.1.0.tar.gz
-  tar zvxf db_mOTU_v3.1.0.tar.gz
+  # wget https://openstack.cebitec.uni-bielefeld.de:8080/swift/v1/mg_databases/db_mOTU_v3.1.0.tar.gz
+  # tar zvxf db_mOTU_v3.1.0.tar.gz
 
   mkdir -p output_taxprofiler
 
@@ -21,13 +21,13 @@ The nf-core/taxpfoiler (https://nf-co.re/taxprofiler) will be used in this train
 .. code-block:: shell
 
   tool,db_name,db_params,db_path
-  motus,db_mOTU,,/mnt/db_mOTU
+  motus,db_mOTU,,/vol/mgcourse/db_mOTU
 
 - Prepare the compressed fastq files as input:
 
 .. code-block:: shell
   
-  cd /mnt/WGS-data
+  cd /vol/mgcourse/WGS-data
   pigz -k read1.fq
   pigz -k read2.fq
 
@@ -36,7 +36,7 @@ The nf-core/taxpfoiler (https://nf-co.re/taxprofiler) will be used in this train
 .. code-block:: shell
 
   sample,run_accession,instrument_platform,fastq_1,fastq_2,fasta
-  s1,run1,ILLUMINA,/mnt/WGS-data/read1.fq.gz,/mnt/WGS-data/read2.fq.gz,
+  s1,run1,ILLUMINA,/vol/mgcourse/WGS-data/read1.fq.gz,/vol/mgcourse/WGS-data/read2.fq.gz,
 
 
 - **Run the pipeline**
@@ -44,10 +44,10 @@ The nf-core/taxpfoiler (https://nf-co.re/taxprofiler) will be used in this train
 .. code-block:: shell
 
   nextflow run nf-core/taxprofiler \
+    -profile docker \
     --input samples.csv \
     --databases databases.csv \
     --outdir output_taxprofiler \
-    -profile docker \
     --run_motus \
     --motus_use_relative_abundance
 
