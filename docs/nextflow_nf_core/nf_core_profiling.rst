@@ -38,6 +38,11 @@ The nf-core/taxpfoiler (https://nf-co.re/taxprofiler) will be used in this train
   sample,run_accession,instrument_platform,fastq_1,fastq_2,fasta
   s1,run1,ILLUMINA,/vol/mgcourse/WGS-data/read1.fq.gz,/vol/mgcourse/WGS-data/read2.fq.gz,
 
+- Activate ``nf_metag`` env
+.. code-block:: shell
+
+  conda activate nf_metag
+
 
 - **Run the pipeline**
 
