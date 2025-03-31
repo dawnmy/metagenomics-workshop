@@ -100,7 +100,7 @@ For the next excercise, we will donwload more sequencing data:
 Tasks:
  1. List all tools in /usr/local/bin/ starting with ‘blast’ 
  2. List all tools in /usr/local/bin/ starting with ‘blast’ followed by one additional character 
- 3. List all tools in /usr/local/bin/ starting with ‘a’ or ‘b’ and ending with ‘c’ or ‘d’ 
+ 3. List all tools in /usr/local/bin/ contatining the pattern "2sam"
  4. Copy all sequence files from the directory linuxdata to the linux_intro directory (except seqs.fasta)
 
 Solution:
@@ -111,7 +111,7 @@ Solution:
    <pre>
    ls /usr/local/bin/blast* <br>
    ls /usr/local/bin/blast? <br>
-   ls /usr/local/bin/[ab]*[cd] <br>
+   ls /usr/local/bin/*2sam* <br>
    cd ~/linuxdata
    cp ./linuxdata/sequences* ~/linux_intro/
    cp ./linuxdata/sequences_?.fasta ~/linux_intro/
