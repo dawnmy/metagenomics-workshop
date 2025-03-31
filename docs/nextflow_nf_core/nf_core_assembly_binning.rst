@@ -28,6 +28,11 @@ We will use nf-core/mag (https://nf-co.re/mag) workflow for metagenomics assembl
   sample,group,short_reads_1,short_reads_2,long_reads
   s1,run1,/vol/mgcourse/WGS-data/read1.fq.gz,/vol/mgcourse/WGS-data/read2.fq.gz,
 
+- Activate ``nf_metag`` env
+.. code-block:: shell
+
+  conda activate nf_metag
+
 
 - Then we can start the mag workflow as follows:
 
