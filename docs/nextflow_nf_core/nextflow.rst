@@ -209,7 +209,7 @@ We can connect different processes with channels to make a complete workflow. We
    
    // Define parameters
    params.reads = "/vol/mgcourse/WGS-data/read{1,2}.fq" // Default pattern for paired-end reads
-   params.outdir = "../output_nf" // Default output directory
+   params.outdir = "/vol/mgcourse/output_nf" // Default output directory
    params.threads = 8
    
    // QC the reads
@@ -266,7 +266,7 @@ We can connect different processes with channels to make a complete workflow. We
 
 After the workflow excuted, we should be able to find the final stats output file. We can view it with: 
 
-``csvtk pretty -t ../output_nf/read.fastp.stats.txt``
+``csvtk pretty -t /vol/mgcourse/output_nf/read.fastp.stats.txt``
 
 
 Operators
@@ -293,7 +293,7 @@ Transforming operators modify the value or data contained in the channel element
 
    // Example: Transform filenames to uppercase
    Channel
-    .fromPath('../WGS-data/*.fq')
+    .fromPath('/vol/mgcourse/WGS-data/*.fq')
     .map { file -> file.name.toUpperCase() }
     .view { "Transformed filename: $it" }
 
@@ -313,7 +313,7 @@ Transforming operators modify the value or data contained in the channel element
    
    // Grouping contents of a channel by a key. 
    // The first element of tuple is the default key.
-   Channel.fromPath('../output_nf/*.fastp.{1,2}.fq.gz')
+   Channel.fromPath('/vol/mgcourse/output_nf/*.fastp.{1,2}.fq.gz')
      .map{file -> [file.name.split('\\.')[0], file]}
      .groupTuple()
      .view()
