@@ -57,3 +57,8 @@ The nf-core/taxpfoiler (https://nf-co.re/taxprofiler) will be used in this train
     --motus_use_relative_abundance
 
 After the pipeline finished, we can will have all results in the ``output_taxprofiler`` directory.
+
+
+.. code-block:: shell
+
+  grep -vE '^#' output_taxprofiler/motus/db_mOTU/s1_run1_db_mOTU.out |awk -F"\t" '$3>0'|csvtk sort -tH -k3:r|csvtk pretty -tH|less
